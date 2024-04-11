@@ -19,8 +19,12 @@ Etter å ha prøvd flere løsninger (Microsoft sine egne, Veeam, Macrium, ++) ha
 - Roterer antall dager man velger i skriptet.  
 - Det bare funker, både på servere og arbeidsstasjoner.  
 - Ingen minnelekasjer, heng eller annet tull.  
+- Logg finnes enkelt i destinasjonsmappen.  
 
-Testen er utført på en arbeidsplass med 5 arbeidsstasjoner og 1 server.  
+Ingen mailvarsling integrert, men dette er jo en ting man gjerne holder et øye med innimellom uansett. 
+Evt. kan man selv enkelt skripte automatisk sending av loggfil via tredjepartsløsning.  
+
+Testing er utført på en arbeidsplass med 5 arbeidsstasjoner og 1 server, aldri noe tull.  
 Det er regelmessig (noen måneders intervall) testet gj.oppretting og integritet av kopier.  
 
 Programmet ser kanskje enkelt ut, men har hittil vært en tungvekter i form av ren funksjonsverdi. 
