@@ -3,7 +3,6 @@
 ![Example UI_1](eksempel1.png) 
 
 Du trenger [Drive Snapshot](http://www.drivesnapshot.de/en/) for å bruke disse skriptene.  
-Evt. ta kontakt hvis du trenger en lisens til v1.50  
 
 **Sikkerhetskopi-løsning for Windows**
 Sikkerhetskopier er hos mange sterkt undervurdert, helt til det går noe galt med benyttet lagringsmedium.  
