@@ -21,7 +21,7 @@ Etter å ha prøvd flere løsninger (Microsoft sine egne, Veeam, Macrium, ++) ha
 - Ingen minnelekasjer, heng eller annet tull.  
 - Logg finnes enkelt i destinasjonsmappen.  
 
-Ingen mailvarsling integrert, men dette er jo en ting man gjerne holder et øye med innimellom uansett. 
+Ingen mailvarsling integrert, men dette er jo en ting man gjerne holder et øye med innimellom uansett.  
 Evt. kan man selv enkelt skripte automatisk sending av loggfil via tredjepartsløsning.  
 
 Testing er utført på en arbeidsplass med 5 arbeidsstasjoner og 1 server, aldri noe tull.  
