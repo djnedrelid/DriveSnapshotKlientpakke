@@ -1,5 +1,6 @@
 ﻿## Drive Snapshot Klientpakke
 
+**Når planlagt oppgave kjører (lukkes av seg selv igjen):**  
 ![Example UI_1](eksempel1.png) 
 
 Du trenger [Drive Snapshot](http://www.drivesnapshot.de/en/) for å bruke disse skriptene.  
