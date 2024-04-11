@@ -1,0 +1,43 @@
+@echo off
+chcp 65001 >nul 2>&1
+cd %~dp0
+
+
+
+
+:: Hvor skal snapshot lagres?
+set BRUKERNAVN=backup
+set PASSORD=backup
+set NETTVERKSMAPPEDELT=\\192.168.1.226\snapshots
+set NETTVERKSMAPPEFULL=\\192.168.1.226\snapshots\esel
+
+
+
+
+:: Skal ikke trenge å endre noe av verdiene nedenfor.
+set OSDRIVE=HDWIN
+set FILNAVN=$computername_$type_$hd_$disk_$date.sna
+set HASHFILNAVN=$computername_$type_$hd_$disk.hsh
+set DESTINATION=%NETTVERKSMAPPEFULL%\%FILNAVN%
+set HASHDESTINATION=%NETTVERKSMAPPEFULL%\%HASHFILNAVN%
+set NETWORKPATH=%NETTVERKSMAPPEDELT%,%BRUKERNAVN%,%PASSORD%
+set LOGFILE=%NETTVERKSMAPPEFULL%\log.txt
+
+:: Autoriser med nettverksbanen for å bruke forfiles.
+net use %NETTVERKSMAPPEDELT% /USER:%BRUKERNAVN% %PASSORD% >nul 2>&1
+
+:: Fjern differensialfiler eldre enn 7 dager.
+PUSHD %NETTVERKSMAPPEFULL% &&(forfiles /s /m "*_dif_*" /d -7 /c "cmd /c del @path" >nul 2>&1) & POPD
+
+:: Fjerner forrige loggfil.
+del %LOGFILE% >nul 2>&1
+
+echo Starter kloning ...
+snapshot64.exe %OSDRIVE%:* %DESTINATION% -Gx --netuse:%NETWORKPATH% --AllWriters -h%HASHDESTINATION% --FullIfHashIsMissing --LogFile:%LOGFILE%
+
+:: Fjerner kobling mot nettverksbane.
+timeout /t 5 /nobreak
+net use /DELETE %NETTVERKSMAPPEDELT% >nul 2>&1
+
+::DEBUG
+::pause

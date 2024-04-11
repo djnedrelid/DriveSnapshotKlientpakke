@@ -1,0 +1,25 @@
+
+
+	OPPSETT
+	=======
+	1) Kopier hele mappen "snapshot" til %userprofile% (planlagt oppgave peker dit).
+	
+	2) Rediger ønsket skriptfil(.cmd) som du vil bruke (lokal- eller nettverksdisk).
+
+	3) Importer xml filen du vil bruke som planlagt oppgave (lokal- eller nettverksdisk).
+	   Husk å sett tidspunkt til det du ønsker etter import. Standard er kl 02:00.
+
+	Test oppgave.
+
+
+
+
+	TIPS & RÅD
+	==========
+	Dersom du skal gjenopprette fra et WinPE/live ISO miljø via nettverk:
+	c:\> net user z: \\adresse\sti /user:brukernavn passord
+	
+	Fjern VSS provider herfra i register hvis en lager trøbbel:
+	HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\VSS\Providers\
+	
+	Fjern (eller flytt) alle filer fra målmappe hvis en ny FULL backup ønskes.

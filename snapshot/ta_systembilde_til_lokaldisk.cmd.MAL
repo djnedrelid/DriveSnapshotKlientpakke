@@ -1,0 +1,32 @@
+@echo off
+chcp 65001 >nul 2>&1
+cd %~dp0
+
+
+
+
+:: Hvor skal snapshot lagres?
+set DESTINASJONSMAPPE=D:\esel
+
+
+
+
+:: Skal ikke trenge å endre noe av verdiene nedenfor.
+set OSDRIVE=HDWIN
+set FILNAVN=$computername_$type_$hd_$disk_$date.sna
+set HASHFILNAVN=$computername_$type_$hd_$disk.hsh
+set DESTINATION=%DESTINASJONSMAPPE%\%FILNAVN%
+set HASHDESTINATION=%DESTINASJONSMAPPE%\%HASHFILNAVN%
+set LOGFILE=%DESTINASJONSMAPPE%\log.txt
+ 
+:: Fjerner differensialfiler eldre enn 7 dager.
+forfiles /p %DESTINASJONSMAPPE% /s /m "*_dif_*" /d -7 /c "cmd /c del @path" >nul 2>&1
+
+:: Fjerner forrige loggfil.
+del %LOGFILE% >nul 2>&1
+ 
+echo Starter kloning ...
+snapshot64.exe %OSDRIVE%:* %DESTINATION% -Gx --AllWriters -h%HASHDESTINATION% --FullIfHashIsMissing --LogFile:%LOGFILE%
+
+::DEBUG
+::pause
